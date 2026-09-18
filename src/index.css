@@ -355,7 +355,7 @@ body {
   font-weight: 600;
   letter-spacing: clamp(-1.2px, -0.3vw, -2px);
   line-height: 1.15;
-  color: #bfa6bd;
+  color: #CD5F28;
 }
 
 .hero-title--mobile,
@@ -372,7 +372,7 @@ body {
   font-weight: 500;
   letter-spacing: -0.1068px;
   line-height: 1.4;
-  color: #bfa6bd;
+  color: #CD5F28;
 }
 .hero-copyright {
   display: none;
@@ -494,8 +494,8 @@ body {
 
     /* ▼ MOBILE TUNING — change values here */
     --mobile-logo-extra-size: 4px;
-    --mobile-header-hero-gap: 50px;
-    --mobile-video-shift-y: -50px;
+    --mobile-header-hero-gap: 70px;
+    --mobile-video-shift-y: -20px;
     --mobile-video-min-height: 45vw;
     --mobile-video-max-height: 80svh;
     --mobile-video-block-gap: 10px;
@@ -535,7 +535,7 @@ body {
   .hero-title--desktop,
   .hero-description--desktop {
     text-align: center;
-    color: #bfa6bd;
+    color: #CD5F28;
     display: none;
   }
 
