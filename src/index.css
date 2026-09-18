@@ -37,10 +37,10 @@
 
   /* Equal distance: UniFeatures ↔ left border AND WhatsApp ↔ right border
      NOTE: must be 0 or positive — negative padding is ignored by browsers */
-  --page-pad: clamp(12px, 2.5vw, 20px);
+  --page-pad: clamp(30px, 5vw, 40px);
 
   /* Gap between hero-title and hero-description (desktop) */
-  --hero-title-desc-gap-desktop: clamp(350px, 38svh, 420px);
+  --hero-title-desc-gap-desktop: clamp(360px, 46svh, 480px);  
 
   /* Gap between hero-title and hero-description (mobile) — edit in @media (max-width: 760px) */
   --hero-title-desc-gap-mobile: clamp(32px, 7svh, 56px);
@@ -135,7 +135,7 @@ body {
   font-family: 'Audiowide', sans-serif;
   font-size: clamp(22px, 4vw, 30px);
   font-weight: 400;
-  color: var(--black);
+  color: #880d1e;
   line-height: 1;
   white-space: nowrap;
 }
@@ -355,7 +355,7 @@ body {
   font-weight: 600;
   letter-spacing: clamp(-1.2px, -0.3vw, -2px);
   line-height: 1.15;
-  color: #cd5d27;
+  color: #bfa6bd;
 }
 
 .hero-title--mobile,
@@ -372,7 +372,7 @@ body {
   font-weight: 500;
   letter-spacing: -0.1068px;
   line-height: 1.4;
-  color: var(--muted);
+  color: #bfa6bd;
 }
 .hero-copyright {
   display: none;
@@ -387,6 +387,12 @@ body {
 /* Mobile products grid — hidden on desktop/tablet */
 .mobile-products-nav {
   display: none;
+}
+
+.hero-stage__video-container,
+.mobile-products-section,
+.hero-copyright-section {
+  display: contents;
 }
 
 .mobile-product-link {
@@ -419,13 +425,31 @@ body {
   .hero-description {
     position: absolute;
     top: var(--hero-title-desc-gap-desktop);
-    right: 0;
-    width: min(394px, 42%);
+    right: var(--page-pad);
+    left: auto;
+    width: auto;
+    max-width: calc(100% - (var(--page-pad) * 2));
     margin: 0;
+    padding-right: 4px;
+    box-sizing: border-box;
+    text-align: right;
+    font-size: clamp(14px, 1.1vw, 17px);
+  }
+
+  .hero-description--desktop {
+    display: block;
+  }
+
+  .hero-description__line {
+    display: block;
+    text-align: right;
+    white-space: nowrap;
+    overflow-wrap: normal;
   }
 
   .hero-copyright {
     display: block;
+    color: #880d1e;
     position: absolute;
     bottom: 0;
     left: 70%;
@@ -452,13 +476,34 @@ body {
   }
 }
 
+/* Desktop header nav — double spacing between products */
+@media (min-width: 961px) {
+  .site-nav {
+    gap: clamp(16px, 3vw, 48px);
+  }
+}
+
 /* ── Mobile ── */
 
 @media (max-width: 760px) {
   :root {
     --cream: #ede2dc;
     --page-pad: 12px;
-    --hero-title-desc-gap-mobile: 8px;
+    /* Gap ≈ 2 lines between hero title and description (mobile only) */
+    --hero-title-desc-gap-mobile: 2lh;
+
+    /* ▼ MOBILE TUNING — change values here */
+    --mobile-logo-extra-size: 4px;
+    --mobile-header-hero-gap: 50px;
+    --mobile-video-shift-y: -50px;
+    --mobile-video-min-height: 45vw;
+    --mobile-video-max-height: 80svh;
+    --mobile-video-block-gap: 10px;
+    --mobile-products-gap: 10px; 
+    --mobile-whatsapp-icon-size: 18px;
+    --mobile-product-font-size: 14px;
+    --mobile-product-label-size: 15px;
+    --mobile-copyright-bottom-pad: 10px;
   }
 
   html,
@@ -489,6 +534,8 @@ body {
 
   .hero-title--desktop,
   .hero-description--desktop {
+    text-align: center;
+    color: #bfa6bd;
     display: none;
   }
 
@@ -513,6 +560,11 @@ body {
     padding: 10px;
   }
 
+  .whatsapp-btn--header .whatsapp-btn-icon {
+    width: var(--mobile-whatsapp-icon-size);
+    height: var(--mobile-whatsapp-icon-size);
+  }
+
   .site-header {
     flex-shrink: 0;
     height: 48px;
@@ -520,12 +572,20 @@ body {
   }
 
   .logo-wordmark {
-    font-size: clamp(1rem, 4vw, 1.35rem);
+    font-size: calc(clamp(1rem, 4vw, 1.35rem) + var(--mobile-logo-extra-size));
+  }
+
+  .hero-stage__video-container,
+  .mobile-products-section,
+  .hero-copyright-section {
+    display: block;
   }
 
   .hero {
+    position: relative;
+    z-index: 2;
     flex: 0 0 auto;
-    margin-top: 4px;
+    margin-top: var(--mobile-header-hero-gap);
     min-height: 0;
   }
 
@@ -548,19 +608,36 @@ body {
     line-height: 1.3;
   }
 
-  .hero-stage__video {
-    position: relative ;
-    inset: auto;
-    z-index: 0;
+  .hero-stage__video-container {
     flex: 1 1 auto;
     min-height: 0;
+    display: flex;
+    align-items: flex-end;
+    margin-top: var(--mobile-video-block-gap);
+    margin-bottom: var(--mobile-video-block-gap);
+    overflow: hidden;
+  }
+
+  .hero-stage__video {
+    position: relative;
+    inset: auto;
+    z-index: 1;
     width: 100%;
-    height: auto;
-    margin-top: 6px;
-    margin-bottom: 6px;
+    height: 100%;
+    max-height: var(--mobile-video-max-height);
+    min-height: var(--mobile-video-min-height);
+    margin: 0;
+    padding: 0;
+    transform: translateY(var(--mobile-video-shift-y));
     object-fit: contain;
     object-position: center bottom;
     background-color: #ede2dc;
+  }
+
+  .mobile-products-section {
+    flex-shrink: 0;
+    padding-top: var(--mobile-products-gap);
+    padding-bottom: var(--mobile-products-gap);
   }
 
   .mobile-products-nav {
@@ -574,8 +651,8 @@ body {
     gap: 8px 16px;
     width: 100%;
     max-width: 320px;
-    margin-top: 0;
-    padding-bottom: 4px;
+    margin: 0;
+    padding: 0;
     flex-shrink: 0;
   }
 
@@ -585,23 +662,29 @@ body {
     align-items: center;
     width: 100%;
     text-align: center;
-    font-size: 11px;
+    font-size: var(--mobile-product-font-size);
     white-space: nowrap;
   }
 
   .mobile-product-link .nav-label {
     text-align: center;
-    font-size: clamp(10px, 2.8vw, 12px);
+    font-size: var(--mobile-product-label-size);
+  }
+
+  .hero-copyright-section {
+    margin-top: auto;
+    flex-shrink: 0;
+    
   }
 
   .hero-copyright {
     text-align: center;
+    color: #880d1e;
     width: 100%;
     display: block;
     position: static;
-    flex-shrink: 0;
-    margin-top: 4px;
-    padding-bottom: 8px;
+    margin: 0;
+    padding-bottom: var(--mobile-copyright-bottom-pad);
     font-size: 9px;
     line-height: 1;
     white-space: nowrap;
@@ -613,25 +696,25 @@ body {
 
 /* ── Extra-small ── */
 
-@media (max-width: 390px) {
+@media (max-width: 320px) {
   :root {
-    --page-pad: 10px;
-    --hero-title-desc-gap-mobile: 6px;
+    --page-pad: 12px;
+    --hero-title-desc-gap-mobile: 2lh;
   }
 
   .hero-title {
-    font-size: clamp(16px, 4.8vw, 20px);
+    font-size: clamp(22px, 6.5vw, 28px);
   }
 
   .hero-description {
-    font-size: 10px;
+    font-size: 14px;
   }
 
   .hero-copyright {
-    font-size: 8px;
+    font-size: 12px;
   }
 
   .mobile-product-link .nav-label {
-    font-size: 10px;
+    font-size: 14px;
   }
 }

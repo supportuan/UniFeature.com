@@ -137,60 +137,68 @@ function App() {
                 <span className="hero-title--desktop">
                   Your Future, Our Commitment.
                   <br />
-                  Crafting Global Upskilling journeys..
+                  Crafting your Global  journeys..
                 </span>
                 <span className="hero-title--mobile">
                   Your Future,
                   <br />
-                  Our Commitment
+                  Our Commitment.
                   <br />
-                  Crafting Global
+                  Crafting your
                   <br />
-                  Upskilling journeys..
+                  Global journeys..
                 </span>
               </h1>
             </div>
 
             <p className="hero-description">
               <span className="hero-description--desktop">
-                Elevate your Global Networking with ApplyUniNow - Simplifying
-                Appliccations, Unlocking Opportunities and Empower Graduates
-                anywhere in the world.
-              </span><br/>
-              <br/>
+                <span className="hero-description__line">
+                  Elevate your global upskilling with ApplyUniNow - simplifying applications,
+                </span>
+                <span className="hero-description__line">
+                  unlocking opportunities and empower graduates anywhere in the world.
+                </span>
+              </span>
               <span className="hero-description--mobile">
-                Elevate your Global Networking with 
+                Elevate your global upskilling with 
                 <br />
-                ApplyUniNow Simplifying Appliccations, 
+                ApplyUniNow - simplifying applications, 
                 <br />
-                Unlocking Opportunities & Empower 
-                <br /> Graduates anywhere in the world.
+                unlocking opportunities & empower 
+                <br /> graduates anywhere in the world.
               </span>
             </p>
           </section>
 
-          <video
-            className="hero-stage__video"
-            aria-label="UniFeatures product preview"
-            autoPlay
-            loop
-            muted
-            playsInline
-            preload="metadata"
-          >
-            <source
-              src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260801_022931_e13cbef4-690a-42d2-b5ee-5b3b1f483c83.mp4"
-              type="video/mp4"
-            />
-          </video>
+          <section className="hero-stage__video-container">
+            <video
+              className="hero-stage__video"
+              aria-label="UniFeatures product preview"
+              autoPlay
+              loop
+              muted
+              playsInline
+              preload="metadata"
+            >
+              <source
+                src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260801_022931_e13cbef4-690a-42d2-b5ee-5b3b1f483c83.mp4"
+                type="video/mp4"
+              />
+            </video>
+          </section>
 
-          <nav className="mobile-products-nav" aria-label="UniFeatures products">
-            <NavLinks className="mobile-product-link" />
-          </nav>
+          <section className="mobile-products-section">
+            <nav className="mobile-products-nav" aria-label="UniFeatures products">
+              <NavLinks className="mobile-product-link" />
+            </nav>
+          </section>
 
-          <p className="hero-copyright">
-            copyright © 2026 AUNtech LTD. All rights reserved.
-          </p>
+          <section className="hero-copyright-section">
+            <p className="hero-copyright">
+              copyright © 2026 AUNtech (p) Ltd. All rights reserved.
+            </p>
+          </section>
         </div>
       </main>
     </div>
