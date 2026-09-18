@@ -133,9 +133,9 @@ body {
 
 .logo-wordmark {
   font-family: 'Audiowide', sans-serif;
-  font-size: clamp(22px, 4vw, 30px);
+  font-size: clamp(25px, 4vw, 35px);
   font-weight: 400;
-  color: #880d1e;
+  color: var(--black);
   line-height: 1;
   white-space: nowrap;
 }
@@ -493,14 +493,14 @@ body {
     --hero-title-desc-gap-mobile: 2lh;
 
     /* ▼ MOBILE TUNING — change values here */
-    --mobile-logo-extra-size: 4px;
+    --mobile-logo-extra-size: 8px;
     --mobile-header-hero-gap: 70px;
     --mobile-video-shift-y: -20px;
     --mobile-video-min-height: 45vw;
     --mobile-video-max-height: 80svh;
     --mobile-video-block-gap: 10px;
     --mobile-products-gap: 10px; 
-    --mobile-whatsapp-icon-size: 18px;
+    --mobile-whatsapp-icon-size: 20px;
     --mobile-product-font-size: 14px;
     --mobile-product-label-size: 15px;
     --mobile-copyright-bottom-pad: 10px;
