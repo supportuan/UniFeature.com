@@ -544,19 +544,19 @@ body {
     position: static;
     margin-top: var(--hero-title-desc-gap-mobile);
     max-width: 100%;
+
     line-height: 1.45;
   }
 
   .hero-stage__video {
     position: relative;
     flex: 1 1 0;
-    min-height: 0;
+    min-height: 50%;
+    height: 100%;
     z-index: 0;
     width: 100%;
-    height: auto;
-    max-height: none;
-    margin-top: clamp(16px, 3svh, 28px);
-    margin-bottom: 68px;
+    height: 100%;
+    margin: 6px 0;
     object-fit: contain;
     object-position: center center;
     background-color: #ede2dc;
@@ -569,7 +569,8 @@ body {
     align-items: center;
     flex-shrink: 0;
     gap: 6px 16px;
-    height: 100px;
+    height: 80px;
+    max-height: 100%;
     width: 100%;
     max-width: 320px;
     margin-inline: auto;
@@ -581,7 +582,6 @@ body {
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    height: 50px;
     width: 100%;
     text-align: center;
     font-size: 11px;
